@@ -4,14 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>原生JS模拟Vue双向绑定</title>
+    <style>
+      #app {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #app div {
+        padding: 10px;
+        margin: 10px;
+        font-size: 32px;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <div>{{ name }}</div>
       <div>{{ title }}</div>
       <div v-model="xxx"></div>
-      <button v-on:click="change">点我</button>
+      <div><button v-on:click="change">点我</button></div>
       <input type="text" v-model="name" />
     </div>
   </body>
@@ -26,15 +40,15 @@
         name: 'abc',
         title: '大表哥'
       },
-      methods: {
-        change() {
-          this.name = 'Hello World';
-        }
-      },
       mounted() {
         setTimeout(() => {
           this.title = '完成了';
         }, 3000);
+      },
+      methods: {
+        change() {
+          this.name = 'Hello World';
+        }
       }
     });
   </script>

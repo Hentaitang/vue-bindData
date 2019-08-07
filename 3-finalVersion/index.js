@@ -9,6 +9,7 @@ class MyVue {
     });
     observe(this.data);
     new Compile(this.el, this.vm);
+    option.created && option.created.call(this);
     option.mounted && option.mounted.call(this);
   }
   proxyKey(key) {
