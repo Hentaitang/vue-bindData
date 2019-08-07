@@ -7,17 +7,26 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="name">{{ name }}</h1>
+    <div id="app">
+      <div>{{ name }}</div>
+      <div>{{ title }}</div>
+    </div>
     <script src="observer.js"></script>
     <script src="watcher.js"></script>
+    <script src="compile.js"></script>
     <script src="index.js"></script>
     <script>
-      var ele = document.querySelector('#name');
-      var myVue = new MyVue({ name: 'name' }, ele, 'name');
-      setTimeout(() => {
-        console.log('name值修改');
-        myVue.data.name = 'Hello World';
-      }, 3000);
+      var myVue = new MyVue({
+        el: '#app',
+        data: {
+          name: 'abc',
+          title: '我是老大哥'
+        }
+      });
+      // setTimeout(() => {
+      //   console.log('name值修改');
+      //   myVue.data.name = 'Hello World';
+      // }, 3000);
     </script>
   </body>
 </html>
